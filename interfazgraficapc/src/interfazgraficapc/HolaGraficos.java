@@ -22,6 +22,7 @@ ArrayList<Alumno> vAlumnos;
         initComponents();
         this.setLocationRelativeTo(null);
         vAlumnos = new ArrayList();
+        jButtonResultado.setEnabled(false);
        
     }
 
@@ -236,6 +237,10 @@ ArrayList<Alumno> vAlumnos;
         jTextField1.setText("");
         jTextField2.setText("");
         jCheckBoxInteresado.setSelected(false);
+        
+        if (vAlumnos.size()>=8) {
+                jButtonResultado.setEnabled(true);
+        }
                
     }//GEN-LAST:event_jButtonGuardarMouseClicked
 
@@ -245,6 +250,10 @@ ArrayList<Alumno> vAlumnos;
 
     private void jButtonResultadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonResultadoMouseClicked
         // TODO add your handling code here:
+        
+        if (jButtonResultado.isEnabled()) {
+            
+      
          String interesado ="";
           String nointeresado ="";
         for (Alumno vAlumno : vAlumnos) {
@@ -257,7 +266,7 @@ ArrayList<Alumno> vAlumnos;
         }
         jTextPaneInteresado.setText(interesado);
         jTextPane4NoInteresdo.setText(nointeresado);
-        
+          }
     }//GEN-LAST:event_jButtonResultadoMouseClicked
 
     /**
