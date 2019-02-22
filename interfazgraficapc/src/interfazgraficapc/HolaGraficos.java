@@ -44,6 +44,7 @@ ArrayList<Alumno> vAlumnos;
         jLabelInteresado = new javax.swing.JLabel();
         jCheckBoxInteresado = new javax.swing.JCheckBox();
         jButtonResultado = new javax.swing.JButton();
+        jButtonCrearGrupos = new javax.swing.JButton();
         jPanelSalidaDatos = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextPaneInteresado = new javax.swing.JTextPane();
@@ -105,6 +106,18 @@ ArrayList<Alumno> vAlumnos;
             }
         });
 
+        jButtonCrearGrupos.setText("Crear Grupos");
+        jButtonCrearGrupos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonCrearGruposMouseClicked(evt);
+            }
+        });
+        jButtonCrearGrupos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCrearGruposActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelEntradaDatos1Layout = new javax.swing.GroupLayout(jPanelEntradaDatos1);
         jPanelEntradaDatos1.setLayout(jPanelEntradaDatos1Layout);
         jPanelEntradaDatos1Layout.setHorizontalGroup(
@@ -135,7 +148,9 @@ ArrayList<Alumno> vAlumnos;
                         .addContainerGap(233, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEntradaDatos1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonResultado)
+                .addGroup(jPanelEntradaDatos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonCrearGrupos)
+                    .addComponent(jButtonResultado))
                 .addContainerGap())
         );
         jPanelEntradaDatos1Layout.setVerticalGroup(
@@ -146,13 +161,19 @@ ArrayList<Alumno> vAlumnos;
                     .addComponent(jLabelNombre)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelInteresado))
-                .addGap(29, 29, 29)
-                .addGroup(jPanelEntradaDatos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelEdad)
-                    .addComponent(jButtonGuardar)
-                    .addComponent(jCheckBoxInteresado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelEntradaDatos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelEntradaDatos1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanelEntradaDatos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelEdad)
+                            .addComponent(jButtonGuardar)
+                            .addComponent(jCheckBoxInteresado))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEntradaDatos1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonCrearGrupos)
+                        .addGap(28, 28, 28)))
                 .addComponent(jButtonResultado)
                 .addContainerGap())
         );
@@ -269,6 +290,17 @@ ArrayList<Alumno> vAlumnos;
           }
     }//GEN-LAST:event_jButtonResultadoMouseClicked
 
+    private void jButtonCrearGruposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearGruposActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCrearGruposActionPerformed
+
+    private void jButtonCrearGruposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCrearGruposMouseClicked
+        // TODO add your handling code here:
+        Grupos nuevo = new Grupos();
+        nuevo.setVisible(true);
+        nuevo.setLocationRelativeTo(this);
+    }//GEN-LAST:event_jButtonCrearGruposMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -305,6 +337,7 @@ ArrayList<Alumno> vAlumnos;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCrearGrupos;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonResultado;
     private javax.swing.JCheckBox jCheckBoxInteresado;
