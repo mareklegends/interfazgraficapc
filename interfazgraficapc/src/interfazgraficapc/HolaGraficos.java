@@ -5,17 +5,24 @@
  */
 package interfazgraficapc;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alumno
  */
 public class HolaGraficos extends javax.swing.JFrame {
-
+ArrayList<Alumno> vAlumnos;
     /**
      * Creates new form HolaGraficos
      */
     public HolaGraficos() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        vAlumnos = new ArrayList();
+       
     }
 
     /**
@@ -27,21 +34,231 @@ public class HolaGraficos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelEntradaDatos1 = new javax.swing.JPanel();
+        jLabelNombre = new javax.swing.JLabel();
+        jLabelEdad = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jButtonGuardar = new javax.swing.JButton();
+        jLabelInteresado = new javax.swing.JLabel();
+        jCheckBoxInteresado = new javax.swing.JCheckBox();
+        jButtonResultado = new javax.swing.JButton();
+        jPanelSalidaDatos = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextPaneInteresado = new javax.swing.JTextPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextPane4NoInteresdo = new javax.swing.JTextPane();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(38, 34, 97));
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocation(new java.awt.Point(0, 0));
+        setResizable(false);
+
+        jPanelEntradaDatos1.setBackground(new java.awt.Color(38, 34, 97));
+        jPanelEntradaDatos1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelEntradaDatos1.setToolTipText("");
+
+        jLabelNombre.setForeground(new java.awt.Color(239, 239, 239));
+        jLabelNombre.setText("Alumno");
+
+        jLabelEdad.setForeground(new java.awt.Color(239, 239, 239));
+        jLabelEdad.setText("Edad");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jButtonGuardar.setText("Guardar");
+        jButtonGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonGuardarMouseClicked(evt);
+            }
+        });
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGuardarActionPerformed(evt);
+            }
+        });
+
+        jLabelInteresado.setBackground(new java.awt.Color(38, 34, 97));
+        jLabelInteresado.setForeground(new java.awt.Color(239, 239, 239));
+        jLabelInteresado.setText("Interesado");
+
+        jCheckBoxInteresado.setBackground(new java.awt.Color(38, 34, 97));
+        jCheckBoxInteresado.setForeground(new java.awt.Color(239, 239, 239));
+        jCheckBoxInteresado.setText("jCheckBox1");
+
+        jButtonResultado.setText("Resultado");
+        jButtonResultado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonResultadoMouseClicked(evt);
+            }
+        });
+        jButtonResultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonResultadoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelEntradaDatos1Layout = new javax.swing.GroupLayout(jPanelEntradaDatos1);
+        jPanelEntradaDatos1.setLayout(jPanelEntradaDatos1Layout);
+        jPanelEntradaDatos1Layout.setHorizontalGroup(
+            jPanelEntradaDatos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEntradaDatos1Layout.createSequentialGroup()
+                .addGroup(jPanelEntradaDatos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelEntradaDatos1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEntradaDatos1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jPanelEntradaDatos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelEntradaDatos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelEntradaDatos1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabelInteresado)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelEntradaDatos1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jButtonGuardar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jCheckBoxInteresado)
+                        .addContainerGap(233, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEntradaDatos1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonResultado)
+                .addContainerGap())
+        );
+        jPanelEntradaDatos1Layout.setVerticalGroup(
+            jPanelEntradaDatos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEntradaDatos1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanelEntradaDatos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelNombre)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelInteresado))
+                .addGap(29, 29, 29)
+                .addGroup(jPanelEntradaDatos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelEdad)
+                    .addComponent(jButtonGuardar)
+                    .addComponent(jCheckBoxInteresado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonResultado)
+                .addContainerGap())
+        );
+
+        jPanelSalidaDatos.setBackground(new java.awt.Color(0, 0, 0));
+        jPanelSalidaDatos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelSalidaDatos.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelSalidaDatos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jScrollPane3.setViewportView(jTextPaneInteresado);
+
+        jScrollPane4.setViewportView(jTextPane4NoInteresdo);
+
+        javax.swing.GroupLayout jPanelSalidaDatosLayout = new javax.swing.GroupLayout(jPanelSalidaDatos);
+        jPanelSalidaDatos.setLayout(jPanelSalidaDatosLayout);
+        jPanelSalidaDatosLayout.setHorizontalGroup(
+            jPanelSalidaDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelSalidaDatosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanelSalidaDatosLayout.setVerticalGroup(
+            jPanelSalidaDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelSalidaDatosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelSalidaDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelEntradaDatos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelSalidaDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jPanelEntradaDatos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanelSalidaDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
+
+    private void jButtonGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGuardarMouseClicked
+        // TODO add your handling code here:
+        try{
+            
+      
+        String nombre = jTextField1.getText();
+        int edad = Integer.parseInt(jTextField2.getText());
+        boolean interesado = jCheckBoxInteresado.isSelected();
+       Alumno a = new Alumno(nombre, edad, interesado);       
+       vAlumnos.add(a);
+         }catch(Exception e){
+             JOptionPane.showMessageDialog(rootPane, "Datos mal introducidos");
+         }
+             
+        System.out.println(vAlumnos.toString());
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jCheckBoxInteresado.setSelected(false);
+               
+    }//GEN-LAST:event_jButtonGuardarMouseClicked
+
+    private void jButtonResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResultadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonResultadoActionPerformed
+
+    private void jButtonResultadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonResultadoMouseClicked
+        // TODO add your handling code here:
+         String interesado ="";
+          String nointeresado ="";
+        for (Alumno vAlumno : vAlumnos) {
+            if (vAlumno.isInteresado()) {           
+               interesado+=vAlumno.toString()+"\n";
+               
+            }else{
+                nointeresado+=vAlumno.toString()+"\n";
+            }
+        }
+        jTextPaneInteresado.setText(interesado);
+        jTextPane4NoInteresdo.setText(nointeresado);
+        
+    }//GEN-LAST:event_jButtonResultadoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -79,5 +296,19 @@ public class HolaGraficos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonGuardar;
+    private javax.swing.JButton jButtonResultado;
+    private javax.swing.JCheckBox jCheckBoxInteresado;
+    private javax.swing.JLabel jLabelEdad;
+    private javax.swing.JLabel jLabelInteresado;
+    private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JPanel jPanelEntradaDatos1;
+    private javax.swing.JPanel jPanelSalidaDatos;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextPane jTextPane4NoInteresdo;
+    private javax.swing.JTextPane jTextPaneInteresado;
     // End of variables declaration//GEN-END:variables
 }
