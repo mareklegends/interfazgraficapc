@@ -5,17 +5,23 @@
  */
 package interfazgraficapc;
 
+import java.util.ArrayList;
+import java.util.Random;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alumno
  */
 public class Grupos extends javax.swing.JFrame {
-
+  ArrayList<NombresEquipos> vNombres;
     /**
      * Creates new form Grupos
      */
     public Grupos() {
         initComponents();
+           
+              vNombres = new ArrayList();
     }
 
     /**
@@ -36,8 +42,10 @@ public class Grupos extends javax.swing.JFrame {
         jTextPane1 = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane2 = new javax.swing.JTextPane();
+        jButtonGenerar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jButtonCerrar.setText("Cerrar");
         jButtonCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -60,6 +68,13 @@ public class Grupos extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(jTextPane2);
 
+        jButtonGenerar.setText("Generar");
+        jButtonGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGenerarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -70,17 +85,21 @@ public class Grupos extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabelNombreGrupo)
-                            .addComponent(jTextFieldNombreGrupo)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                            .addComponent(jTextFieldNombreGrupo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabelIntegrantes)
                             .addComponent(jTextFieldIntegrantes)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonCerrar)))
                 .addGap(22, 22, 22))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 256, Short.MAX_VALUE)
+                .addComponent(jButtonGenerar)
+                .addGap(251, 251, 251))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,7 +112,9 @@ public class Grupos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldNombreGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldIntegrantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(79, 79, 79)
+                .addGap(26, 26, 26)
+                .addComponent(jButtonGenerar)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
@@ -113,6 +134,54 @@ public class Grupos extends javax.swing.JFrame {
     private void jTextFieldNombreGrupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreGrupoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNombreGrupoActionPerformed
+
+    private void jButtonGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGenerarActionPerformed
+        // TODO add your handling code here:
+        
+      try{
+        String nombre = jTextFieldNombreGrupo.getText();
+        int cantidad = Integer.parseInt(jTextFieldIntegrantes.getText());
+ 
+        NombresEquipos g = new NombresEquipos(nombre, cantidad);
+     
+        vNombres.add(g);
+        
+         }catch(Exception e){
+             JOptionPane.showMessageDialog(rootPane, "Datos mal introducidos");
+         }
+             jTextFieldNombreGrupo.setText("");
+        jTextFieldIntegrantes.setText("");
+   
+        
+        Random r = new Random();
+        
+        String grupo1 ="";
+        String grupo0 ="";
+        int contador=0;
+        
+        for (int i = 0; i < vNombres.size(); i++) {
+            
+            int numeroR = r.nextInt(2);
+            
+            if (numeroR==1) {
+            grupo1+=vNombres.get(i).getNombreGrupo()+" ---- "+"Juagdor"+contador;
+             contador++;  
+            }
+            if (numeroR==0) {
+               grupo0+=vNombres.get(i).getNombreGrupo()+" ---- "+"Juagdor"+contador;   
+            contador++;
+            }
+             jTextPane1.setText(grupo1);
+             jTextPane2.setText(grupo0);
+            
+        }
+       
+         
+         
+    
+        
+       
+    }//GEN-LAST:event_jButtonGenerarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,6 +220,7 @@ public class Grupos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCerrar;
+    private javax.swing.JButton jButtonGenerar;
     private javax.swing.JLabel jLabelIntegrantes;
     private javax.swing.JLabel jLabelNombreGrupo;
     private javax.swing.JScrollPane jScrollPane1;
